@@ -1,0 +1,13 @@
+<div class="product-details" *ngIf="selectedProduct">
+    <div class="product-img">
+        <img [src]="selectedProduct.strDrinkThumb">
+    </div>
+    <div class="product-info">
+        <h2>Instructions</h2>
+        <p>{{selectedProduct.strInstructions}}</p>
+        <h2>Tags</h2>
+        <p>{{selectedProduct.strTags}}</p>
+    </div>
+</div>
+
+<p class="backbtn" (click)="backToList()"> < Back to products List</p>

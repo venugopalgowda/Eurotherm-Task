@@ -1,0 +1,27 @@
+<div class="products-filter">
+    <section class="example-section">
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="Alcoholic" (change)="filterByType('Alcoholic')">Alcoholic</mat-radio-button>
+            <mat-radio-button value="NONAlcoholic" (change)="filterByType('NONAlcoholic')">NON-Alcoholic</mat-radio-button>
+        </mat-radio-group>
+    </section>
+</div>
+<div class="products-list">
+        <ng-container *ngIf="productsList">
+            <mat-card class="product" *ngFor="let product of productsList">
+                <img mat-card-image [src]="product.strDrinkThumb" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>{{product.strAlcoholic}}</p>
+                  <p>Category:{{product.strAlcoholic}}</p>
+                  <p>Drink:{{product.strDrink}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button (click)="getProduct(product.idDrink)">Read More</button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-container>
+       
+        <ng-container *ngIf="productsList?.length === 0">
+            <div class="nodata"><p>Item Not found</p></div>
+        </ng-container>
+</div>
